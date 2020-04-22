@@ -10,14 +10,6 @@ class Jungle {
     this.animals = animals
   }
 
-  pick_animal () {
-    const id = Math.floor(Math.random() * 5) + 1;
-    return {
-      animal: this.animals.find(el => el.id === id),
-      id
-    }
-  }
-
   animal_action (animal, action_id) {
     let action = ''
 
@@ -40,7 +32,8 @@ class Jungle {
   }
 
   animal_message (action_id) {
-    const { animal, id } = this.pick_animal()
+    const id = Math.floor(Math.random() * 5) + 1;
+    const animal = this.animals.find(el => el.id === id)
     const action = this.animal_action(animal, action_id)
     return `${animal.constructor.name} ${id} ${action}... total energy ${animal.energy}`
   }
@@ -55,14 +48,14 @@ class Jungle {
 
   monkey_play () {
     let monkeys = this.animals.filter(el => el.constructor.name == 'Monkey')
-    if (monkeys == 0) return "There are no monkeys."
+    if (monkeys.length === 0) return "There are no monkeys."
     return monkeys[Math.floor(Math.random() * monkeys.length)].play() 
   }
 
   * perform_action () {
     while (true) {
       const action_id = Math.floor(Math.random() * 5) + 1;
-      // const action_id = 2
+
       if (action_id < 4) {
         yield this.animal_message(action_id)
       } else if (action_id == 4) {
@@ -72,8 +65,6 @@ class Jungle {
       }
     }
   }
-
-
 }
 
 module.exports = new Jungle()

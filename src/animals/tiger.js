@@ -15,7 +15,7 @@ class Tiger extends Animal {
   eat () {
     const food = this.foods[Math.floor(Math.random() * 3)]
     if (food === 'Grain') {
-      return 'Say I can\'t Grain'
+      return 'Say I can\'t eat Grain'
     } else {
       this.energy += 5
       return `eats ${food}`

@@ -6,7 +6,7 @@ class Jungle {
 
   constructor () {
     animalsFactory.generateForest()
-    let { animals } = animalsFactory.build()
+    const { animals } = animalsFactory.build()
     this.animals = animals
   }
 
@@ -47,7 +47,7 @@ class Jungle {
   }
 
   monkey_play () {
-    let monkeys = this.animals.filter(el => el.constructor.name == 'Monkey')
+    const monkeys = this.animals.filter(el => el.constructor.name == 'Monkey')
     if (monkeys.length === 0) return "There are no monkeys."
     return monkeys[Math.floor(Math.random() * monkeys.length)].play() 
   }

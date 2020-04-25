@@ -1,6 +1,7 @@
 // abstract class is optional (?)
 class Animal {
   constructor() {
+    this.energy = 10
     this.foods = ['Fish', 'Grain', 'Meet']
   }
 

@@ -4,7 +4,6 @@ const Animal = require('./animal')
 class Monkey extends Animal {
   constructor (id) {
     super()
-    this.energy = 10
     this.id = id
   }
 

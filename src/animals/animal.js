@@ -18,7 +18,6 @@ class Animal {
     this.energy += 10
   }
 
-  play () {}
 }
 
 module.exports = Animal
